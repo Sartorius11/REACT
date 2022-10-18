@@ -1,15 +1,50 @@
 import logo from './logo.svg';
 import './App.css';
 import SumarNumeros from './components/SumarNumeros';
-
-
+import SaludoHijo from './components/SaludoHijo';
+import Matematicas from './components/Matematicas';
+import Contador from './components/contador';
 function App() {
+
+
+  //QUEREMOS UN METODO EN PARENT QUE SEA 
+  //LLAMADO DESDE EL HIJO
+  const metodoPadre=(descripcion)=>{
+    console.log("EY " + descripcion);
+  }
+
+  const tripleNumero=(n2)=>{
+   console.log(n2*3)
+        
+  }
+
+ 
+  
+
   return (
     <div className="App">
-      <SumarNumeros/>
+      <h1>Componente App</h1>
+      <Contador inicio="10"/>
+
+      {/* ENVIAMOS EL METODO DEL PADRE AL HIJO CON 
+      UN NOMBRE DE PROPS  */}
+
+    <SaludoHijo idhijo="1" metodoPadre={metodoPadre}/>
+    <SaludoHijo idhijo="2" metodoPadre={metodoPadre}/>
+    <SaludoHijo idhijo="3" metodoPadre={metodoPadre}/>
+
+    <Matematicas numero="9" metodo={tripleNumero}/>
+    //ENVIAMOS  EL METODO DEL PADRE AL HIJO  NOMBRE DE PROPS
+    
+
+
+ 
 
     </div>
   );
+
+
+
 }
 
 export default App;
